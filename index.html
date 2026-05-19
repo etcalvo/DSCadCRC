@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAD ↔ CRC</title>
+  <meta name="description" content="Convertidor de dólares canadienses (CAD) a colones costarricenses (CRC)">
+  <meta name="theme-color" content="#c8102e">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CAD <span class="sep">↔</span> CRC</h1>
+    <div class="rate-info" aria-live="polite">
+      <span id="rate-value" class="rate-value"></span>
+      <span id="rate-date" class="rate-date"></span>
+    </div>
+  </header>
+
+  <main>
+    <div class="card">
+      <div class="field">
+        <label for="cad-input">
+          <span class="flag">🇨🇦</span>
+          <span class="currency-name">Dólar canadiense</span>
+          <span class="badge">CAD</span>
+        </label>
+        <div class="input-row">
+          <span class="sym">$</span>
+          <input type="number" id="cad-input" inputmode="decimal"
+                 placeholder="0.00" min="0" step="0.01" disabled>
+        </div>
+      </div>
+
+      <div class="divider" aria-hidden="true">⇅</div>
+
+      <div class="field">
+        <label for="crc-input">
+          <span class="flag">🇨🇷</span>
+          <span class="currency-name">Colón costarricense</span>
+          <span class="badge">CRC</span>
+        </label>
+        <div class="input-row">
+          <span class="sym">₡</span>
+          <input type="number" id="crc-input" inputmode="decimal"
+                 placeholder="0.00" min="0" step="0.01" disabled>
+        </div>
+      </div>
+    </div>
+
+    <div id="status" class="status" role="status"></div>
+  </main>
+
+  <footer>
+    <p>Tasa: <a href="https://open.er-api.com" target="_blank" rel="noopener">Open Exchange Rates</a></p>
+    <p><a href="https://github.com/etcalvo/dscadcrc" target="_blank" rel="noopener">Código fuente</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
