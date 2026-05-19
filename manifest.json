@@ -1,0 +1,18 @@
+{
+  "name": "Convertidor CAD ↔ CRC",
+  "short_name": "CAD/CRC",
+  "description": "Convertidor de dólares canadienses a colones costarricenses",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f8f9fa",
+  "theme_color": "#c8102e",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
