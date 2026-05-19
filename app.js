@@ -1,3 +1,30 @@
+const THEME_KEY = 'cadcrc_theme';
+const themeBtn = document.getElementById('theme-toggle');
+
+function getSystemTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+function getEffectiveTheme() {
+  return localStorage.getItem(THEME_KEY) || getSystemTheme();
+}
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  themeBtn.setAttribute('aria-label',
+    theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+}
+
+themeBtn.addEventListener('click', () => {
+  const next = getEffectiveTheme() === 'dark' ? 'light' : 'dark';
+  localStorage.setItem(THEME_KEY, next);
+  applyTheme(next);
+});
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  if (!localStorage.getItem(THEME_KEY)) applyTheme(getSystemTheme());
+});
+
+applyTheme(getEffectiveTheme());
+
 const API_URL = 'https://open.er-api.com/v6/latest/CAD';
 const CACHE_KEY = 'cadcrc_cache';
 
